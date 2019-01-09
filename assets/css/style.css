@@ -1,0 +1,30 @@
+body {
+    background: url("./images/WorldMap.jpg");
+    background: no-repeat;
+    background-size:cover;
+    z-index:0;
+}
+.image {
+    backgroung-image: url(".images/WorldMap.jpg");
+    opacity: 0.2;
+    width:100%;
+    height:100%;
+}
+#title{
+    margin-top: 20%;
+    font-size:75px;
+    z-index:2; 
+}
+.buttonwrapper {
+    text-align: center;
+    font-size: 50px;
+}
+.button {
+    position: absolute;
+    top:50%;f
+    left:45%;
+    width:175px;
+}
+p {
+    font-size: 50px;
+}
