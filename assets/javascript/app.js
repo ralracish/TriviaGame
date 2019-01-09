@@ -1,9 +1,6 @@
 
-//Create Start function for start button
-//Figure out how to change part of the screen for questions and answers
-//Create a timer for each question
-//
-
+$(document).ready(function() {
+    
 var pages = {
     page1: {
     "question": "What type of money would you spend in Germany?",

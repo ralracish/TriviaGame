@@ -1,14 +1,24 @@
-body {
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-image: url("../images/WorldMap.jpg");
-    background-image opacity: 0.2;
-    background: no-repeat;
-    background-size:cover;
-    z-index:0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+    opacity: 0.3;
+    filter:alpha(opacity=80);
+    z-index: 0;
 }
 #title{
-    margin-top: 20%;
+    margin-top: 30px;
     font-size:75px;
-    z-index:2; 
+    z-index:2;
+    opacity:0.8; 
+    color:black;
+    text-align:center;
 }
 .buttonwrapper {
     text-align: center;
@@ -19,8 +29,16 @@ body {
     top:50%;
     left:45%;
     width:175px;
-    z-index:2;
-    opacity:1.0;
+    z-index:5;
+}
+#box {
+    height:500px;
+    widows:200px;
+    width:80%;
+    align-self: center;
+    text-align:center;
+    background-color:white;
+    margin-left:150px;
 }
 p {
     font-size: 50px;
