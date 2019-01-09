@@ -1,14 +1,9 @@
 body {
-    background: url("./images/WorldMap.jpg");
+    background-image: url("../images/WorldMap.jpg");
+    background-image opacity: 0.2;
     background: no-repeat;
     background-size:cover;
     z-index:0;
-}
-.image {
-    backgroung-image: url(".images/WorldMap.jpg");
-    opacity: 0.2;
-    width:100%;
-    height:100%;
 }
 #title{
     margin-top: 20%;
@@ -21,9 +16,11 @@ body {
 }
 .button {
     position: absolute;
-    top:50%;f
+    top:50%;
     left:45%;
     width:175px;
+    z-index:2;
+    opacity:1.0;
 }
 p {
     font-size: 50px;
