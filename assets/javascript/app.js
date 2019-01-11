@@ -1,63 +1,120 @@
 
 $(document).ready(function() {
     
-var pages = {
-    page1: {
+var pageArray = [
+   {
     "question": "What type of money would you spend in Germany?",
-    "answerArr": ["Yen", "Deutsche Marks", "Pounds", "Euros"],
-    "answer": "Euros"
+    "answerArray": ["Yen", "Deutsche Marks", "Pounds", "Euros"],
+    "rightAnswer": 3,
+    "image": "../assets/images/Euro.jpg"
     },
     
-    page2: {
+    {
     "question": "What river runs through Paris?",
-    "answerArr": ["The Seine", "River Thames", "The Danube", "The Amstel"],
-    "answer": "The Seine"
+    "answerArray": ["The Seine", "River Thames", "The Danube", "The Amstel"],
+    "rightAnswer": 0,
+    "image":"..assets/images/SeineRiver.jpg"
     },   
 
-    page3: {
+    {
     "question": "In what country is The Great Wall?",
-    "answerArr": ["Spain", "China", "Argentina", "Canada"],
-    "answer": "China"
+    "answerArray": ["Spain", "China", "Argentina", "Canada"],
+    "rightAnswer": 1,
+    "image": "../assets/images/GreatWall.jpg"
     },
 
-    page4: {
+    {
     "question": "In what US state is the Grand Canyon?",
-    "answerArr": ["New Mexico", "Arizona", "California", "Nevada"],
-    "answer": "Arizona"
+    "answerArray": ["New Mexico", "Arizona", "California", "Nevada"],
+    "rightAnswer": 1,
+    "image": "../assets/images/GrandCanyon.jpg"
     },
 
-    page5: {
+    {
     "question": "In 1976, Saigon changed its name to …?",
-    "answerArr": ["Ho Chi Minh City", "Pattaya", "Saigon City", "Hanoi"],
-    "answer": "Ho Chi Minh City"
+    "answerArray": ["Ho Chi Minh City", "Pattaya", "Saigon City", "Hanoi"],
+    "rightAnswer": 0,
+    "image": "../assets/images/GrandCanyon.jpg"
     }
+]
+
+
+var timer = 0;
+var correctAnswer = 0
+var incorrectAnswer = 0
+var unanswered = 0
+var userAnswer = ""
+var currentQuestion = "";
+
+
+$("#startBtn").click(function){ 
+  run()
+  $(this).hide();
 }
+//   playPage();
+//   }); 
 
-//Create function to start game
-// const button = document.querySelector('button');
+//   $('#startOverBtn').on('click', function(){
+//     $(this).hide();
+//     playPage();
+//   });
+// $("#doneBtn").on("click",function(){
+//   $(this).hide();
+//   playPage();
+// }
 
-// button.addEventListener('click', playPage)
+//   // function playPage(){
+//   // pageArray.forEach(function(element, index) {
+//     // console.log('QUESTION ', element.question)
+//   // element.answerArray.forEach(function(answer, i) {
+//     // console.log('each answer ', answer)
+//     // var div = document.createElement("div");
+//     // div.innerHTML = question;
+//     // documentGetElementById("question").appendChild(div);
+//     // var div1 = document.createElement("div")
+//     // div.innerHTML = answer;
+//     // documentGetElementById("answers".appendChild(div1));
 
-// function playPage(){
-    // for (var i = 0; i < pages.length; i++) {
-        // for (var j = 0; j < pages[i].length; j++) {
-        //   console.log(pages[i][j]);
-        // }
-    //   }
-      
-    //display first page with question and then answers
-// Object.keys(pages).forEach(function(key){
-    // console.log(key,pages[key]);
-// });
-function createPages(page){
-    var newDiv = $("<div>")
-    newDiv.attr("id",pages) 
-    var firstP = $("<p>");
-    firstP.text(pages.page1.question);
-    newDiv.append(firstP);
-}
+//   // })
+// // });
+//   // }
 
-createPages(){
-console.log(createPages)
-}
-//create a function to display questions and then answerArr and push to Div="page" 
+//   // function playPage(){
+//     // timer();
+//     pageArray.forEach(function(element, index){
+//       console.log("Question", element.question);
+//     element.answerArray.forEach(function(answer, i){
+//       console.log(answer)
+//     // })
+//     })
+// })
+// playPage()
+// function nextPage(){
+  // run();
+
+// }
+
+// function timer(){
+  var number = 15;
+  var intervalId;
+  function run() {
+    if (!intervalId) {
+      intervalId = setInterval(decrement, 1000);
+    }
+  }
+  function decrement() {
+    number--;
+    $("#timer").html("<h2> Timer: " + number + "</h2>");
+    if (number === 0) {
+      stop();
+      alert("Time Up!");
+      // nextPage();
+    }
+  }
+  function stop() {
+    clearInterval(intervalId);
+    intervalId = null
+  }
+
+
+});

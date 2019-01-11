@@ -17,30 +17,25 @@
 
 </head>
 <body>
-<div id="background">
-<!-- <img src="assets/images/WorldMap.jpg" alt="World Map"> -->
-    <div class="row" id="title">
-        <div class="col-lg-2"></div>
-        <div class="col-lg-8">Travel Trivia</div>
-        <div class="col-lg-2"></div>
-    </div>
-    <div class = "row" id="button"></div>
-        <div class=column-lg-12 id="buttonwrapper">
-            <button class="button" type="button">Start</button>
+<div class = "wrap">
+    <div id="background">
+        <div class="row" id="title">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">Travel Trivia</div>
+            <div class="col-lg-2"></div>
         </div>
-<div id="box">
-    <p class="question">What is this question?</p>
-    <ol id="choices">
-        <li class="answers"></li>
-        <li>answer1</li>
-        <li>answer2</li>
-        <li>answer3</li>
-        <li>answer4</li>
-    </ol>
+        <button id="startBtn">Start</button>
+        <div id="box">
+        <!-- Each page -->
+        <div id="game">
+            <h2 id="timer">Timer: 15</h2>
+            <h1 id="question"></h1>
+            <ol id="answers"></ol>
+        </div>
+        </div>
+    </diV>
 </div>
-</div>
-
-
-
+<script src="https://code.jquery.com/jquery.js"></script>
+<script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 </html>
