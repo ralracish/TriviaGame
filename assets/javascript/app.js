@@ -79,22 +79,62 @@ $("#startBtn").click(function){
 // // });
 //   // }
 
-//   // function playPage(){
-//     // timer();
-//     pageArray.forEach(function(element, index){
-//       console.log("Question", element.question);
-//     element.answerArray.forEach(function(answer, i){
-//       console.log(answer)
-//     // })
-//     })
-// })
-// playPage()
-// function nextPage(){
-  // run();
+  function playPage(){
+    timer();
+    pageArray.forEach(function(element, index){
+      console.log("Question", element.question);
+    element.answerArray.forEach(function(answer, i){
+      console.log(answer)
+    })
+    })
+})
 
-// }
 
-// function timer(){
+function nextPage(){
+  reset timer;
+
+
+Choose answer
+$("answers").mouseover(function(e) {
+  var $target = $(e.target);
+  if($target.is("answers")) {
+      console.log('yeah!');
+  };
+})​
+
+<select id = "answers">
+    <option value="1">1</option>
+    <option value="2">2</option> 
+</select> 
+
+
+
+$("#answers").hover(function(){
+    $(this).css("background-color", "yellow");
+    }, function(){
+    $(this).css("background-color", "pink");
+});
+
+$("#answers").ready(function(){
+    $("#answers").change(function(){
+        alert("The select has been changed.");
+    });
+});
+
+if userchoice = correctAnswer {
+  correctAnswer++
+  {nextPage)
+}
+else {
+  incorrectAnswer++
+}
+after last question
+final page
+var newDiv =document.CreateElement("div")
+div.innerHTML = correctAnswer;
+documentGetElementById("correctAnswer").appendChild(div);
+$
+function timer(){
   var number = 15;
   var intervalId;
   function run() {
@@ -115,6 +155,7 @@ $("#startBtn").click(function){
     clearInterval(intervalId);
     intervalId = null
   }
+}
 
 
 });
