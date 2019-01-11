@@ -39,102 +39,58 @@ var pageArray = [
 ]
 
 
-var timer = 0;
-var correctAnswer = 0
-var incorrectAnswer = 0
-var unanswered = 0
-var userAnswer = ""
-var currentQuestion = "";
+
+var correctAnswer = 0;
+var incorrectAnswer = 0;
+var unanswered = 0;
+var userAnswer = [];
+var currentQuestion = 0;
+var userChoice=false;
 
 
-$("#startBtn").click(function){ 
-  run()
-  $(this).hide();
-}
-//   playPage();
-//   }); 
+//Do I need to collect userAnswers into an array because I need to hold them somewhere?
 
-//   $('#startOverBtn').on('click', function(){
-//     $(this).hide();
-//     playPage();
-//   });
-// $("#doneBtn").on("click",function(){
+//Start button should only be on first page, and when hit, timer starts and new page comes up
+// $("#startBtn").click(function){ 
+//   timer();
 //   $(this).hide();
-//   playPage();
+// }
+//Create function for displaying questions with associated answers on the screen
+
+// function displayquestions(){
+//   loop through "question"
+//   loop through "answerArray"
+//   append BOTH to html, appending "answerArray" to a list tag in html
 // }
 
-//   // function playPage(){
-//   // pageArray.forEach(function(element, index) {
-//     // console.log('QUESTION ', element.question)
-//   // element.answerArray.forEach(function(answer, i) {
-//     // console.log('each answer ', answer)
-//     // var div = document.createElement("div");
-//     // div.innerHTML = question;
-//     // documentGetElementById("question").appendChild(div);
-//     // var div1 = document.createElement("div")
-//     // div.innerHTML = answer;
-//     // documentGetElementById("answers".appendChild(div1));
+// function selectAnswers(){
+//Set userChoice = false?
+//Create function for user to select answers which will then be correctAnswer, incorrectAnswer, or if no selection unanswered
+//Mousover answerlist so the user can see which answer to pick, and add event listener to create userChoice variable?
+//If user selects answer (userChoice) before timer=0 check to see if = rightAnswer. 
+//If true, increase correctAnswer by 1 = correctAnswer++
+  //Load page with message "That's correct" on html and show image
+//If false, increase incorrectAnswer by 1 = incorrectAnswer++
+  //Load page with message "No. The answer is "rightanswer"" on html and show image
+//If user doesn't select answer before timer=0, 
+  //Load page with message "Time's Up! The answer is "rightAnswer." and show the image on the HTML, increase unanswered by 1 = useranswer++
 
-//   // })
-// // });
-//   // }
+//If userChoice=true || userChoice=false || userChoice=unanswered
 
-  function playPage(){
-    timer();
-    pageArray.forEach(function(element, index){
-      console.log("Question", element.question);
-    element.answerArray.forEach(function(answer, i){
-      console.log(answer)
-    })
-    })
-})
+//Move to next page with new question and associated answers
+  //timer should restart
 
+//When last "question" and "answer" page has been displayed and answered
 
-function nextPage(){
-  reset timer;
+//Go to summary page, which will have 
+  // "You have finished the quiz!"
+    // "Correct Answers: " + correctAnswer counter
+    // "Incorrect Answers: " + incorrectAnswer counter
+    // "Unanswered Questions: " + unanswered counter;
 
+//Create a reset button and function that will reset the game
 
-Choose answer
-$("answers").mouseover(function(e) {
-  var $target = $(e.target);
-  if($target.is("answers")) {
-      console.log('yeah!');
-  };
-})​
-
-<select id = "answers">
-    <option value="1">1</option>
-    <option value="2">2</option> 
-</select> 
-
-
-
-$("#answers").hover(function(){
-    $(this).css("background-color", "yellow");
-    }, function(){
-    $(this).css("background-color", "pink");
-});
-
-$("#answers").ready(function(){
-    $("#answers").change(function(){
-        alert("The select has been changed.");
-    });
-});
-
-if userchoice = correctAnswer {
-  correctAnswer++
-  {nextPage)
-}
-else {
-  incorrectAnswer++
-}
-after last question
-final page
-var newDiv =document.CreateElement("div")
-div.innerHTML = correctAnswer;
-documentGetElementById("correctAnswer").appendChild(div);
-$
-function timer(){
+// function timer(){
   var number = 15;
   var intervalId;
   function run() {
@@ -155,7 +111,8 @@ function timer(){
     clearInterval(intervalId);
     intervalId = null
   }
-}
+  run();
+// }
 
 
 });
