@@ -34,11 +34,10 @@ $(document).ready(function() {
     
 
 
-var correctAnswer = 0;
-var incorrectAnswer = 0;
+var correctAnswerCounter = 0;
+var incorrectAnswerCounter = 0;
 var unanswered = 0;
 var userAnswer = [];
-var userChoice=false;
 var counter = 1;
 var currentQuestion = "question" + counter;
 
@@ -72,8 +71,38 @@ function reset(){
 }
 
 
-// $("#answers").on("click", "div" function(){
-// console.log(this);
+$("#answers").on("click", "div", function(e){
+  userAnswer = ($(this).text()); 
+  console.log(userAnswer);
+  if (userAnswer = page[currentQuestion].rightAnswer){
+    console.log(page[currentQuestion].rightAnswer)
+    correctAnswerCounter++;
+    console.log(correctAnswerCounter);
+    var div = document.getElementById("rightMessage");
+    div.innerHTML += "You picked the right answer!";
+      // reset();
+  }
+  // }
+    // var img = document.createElement("img");
+    // img.src = page.question1.image
+    // src.appendChild(img);
+    // reset();
+  // }
+  else if (userAnswer != page[currentQuestion].rightAnswer)
+  {
+    incorrectAnswerCounter++
+    var div2 = document.getElementById("wrongMessage");
+    div.innerHTML +=  "No. That's not right."
+  }
+})
+//     if (userChoice=rightAnswer){
+//       correctAnswer++;
+//       reset();
+//     }
+//     else {
+//       incorrectAnswer++;
+//      reset();
+//     }
 // })
 
 

@@ -41,6 +41,10 @@
     margin-left:300px;
     z-index: 1;
 }
+#answers {
+    font-size:30px;
+    
+}
 #timer {
     margin-top:20px;
 }
