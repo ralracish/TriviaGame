@@ -1,35 +1,32 @@
-var page = {
-  question1: {
-    text: "What type of money would you spend in Germany?",
+var pageArray = [
+  
+  {question: "What type of money would you spend in Germany?",
     answerArray: ["Yen", "Deutsche Marks", "Pounds", "Euros"],
     rightAnswer: 3,
     image: "../assets/images/Euro.jpg"
     },
-  question2: {
-    text: "What river runs through Paris?",
+    {question: "What river runs through Paris?",
     answerArray: ["The Seine", "River Thames", "The Danube", "The Amstel"],
     rightAnswer: 0,
     image: "..assets/images/SeineRiver.jpg"
     },   
-  question3: { 
-    text: "In what country is The Great Wall?",
+  {question: "In what country is The Great Wall?",
     answerArray: ["Spain", "China", "Argentina", "Canada"],
     rightAnswer: 1,
     image: "../assets/images/GreatWall.jpg"
     },
-  question4:{ 
-    text: "In what US state is the Grand Canyon?",
+    {
+  question:"In what US state is the Grand Canyon?",
     answerArray: ["New Mexico", "Arizona", "California", "Nevada"],
     rightAnswer: 1,
     image: "../assets/images/GrandCanyon.jpg"
-    },
-   question5: {
-    text: "In 1976, Saigon changed its name to …?",
+    },{
+   question:  "In 1976, Saigon changed its name to …?",
     answerArray: ["Ho Chi Minh City", "Pattaya", "Saigon City", "Hanoi"],
     rightAnswer: 0,
     image: "../assets/images/GrandCanyon.jpg"
   }
-}
+]
 $(document).ready(function() {
     
 
@@ -39,7 +36,7 @@ var incorrectAnswerCounter = 0;
 var unanswered = 0;
 var userAnswer = [];
 var counter = 1;
-var currentQuestion = "question" + counter;
+var currentQuestion = pageArray.question + counter;
 
 // game[key].someotherproperty;
 
@@ -52,29 +49,39 @@ $("#startBtn").click(function(){
   reset()
 });
 
-function reset(){
-  run();
-  counter++
-  $("#question").text(page[currentQuestion].text)
-  var pageDiv1 = $("<div>")
-  pageDiv1.html(page[currentQuestion].answerArray[0])
-  $("#answers").append(pageDiv1)
-  var pageDiv2 = $("<div>")
-  pageDiv2.html(page[currentQuestion].answerArray[1])
-  $("#answers").append(pageDiv2)
-  var pageDiv3 = $("<div>")
-  pageDiv3.html(page[currentQuestion].answerArray[2])
-  $("#answers").append(pageDiv3)
-  var pageDiv4 = $("<div>")
-  pageDiv4.html(page[currentQuestion].answerArray[3])
-  $("#answers").append(pageDiv4)    
-}
+// function reset(){
+//   run();
+//   counter++
+//   $("#question").text(page[currentQuestion].text)
+//   var pageDiv1 = $("<div>")
+//     pageDiv1.html(page[currentQuestion].answerArray[0])
+//   $("#answers").append(pageDiv1)
+//   var pageDiv2 = $("<div>")
+//   pageDiv2.html(page[currentQuestion].answerArray[1])
+//   $("#answers").append(pageDiv2)
+//   var pageDiv3 = $("<div>")
+//   pageDiv3.html(page[currentQuestion].answerArray[2])
+//   $("#answers").append(pageDiv3)
+//   var pageDiv4 = $("<div>")
+//   pageDiv4.html(page[currentQuestion].answerArray[3])
+//   $("#answers").append(pageDiv4)    
+// }
+// function reset(){
+//   run();
+// counter++;
+  
+pageArray.forEach(function(element, index) {
+  console.log('QUESTION ', element.question)
+element.answerArray.forEach(function(answer, i) {
+  console.log('each answer ', answer)
+})
+});  
 
 
 $("#answers").on("click", "div", function(e){
   userAnswer = ($(this).text()); 
   console.log(userAnswer);
-  if (userAnswer = page[currentQuestion].rightAnswer){
+  if (userAnswer == page[currentQuestion].rightAnswer){
     console.log(page[currentQuestion].rightAnswer)
     correctAnswerCounter++;
     console.log(correctAnswerCounter);
@@ -88,11 +95,11 @@ $("#answers").on("click", "div", function(e){
     // src.appendChild(img);
     // reset();
   // }
-  else if (userAnswer != page[currentQuestion].rightAnswer)
+  else if (userAnswer !== page[currentQuestion].rightAnswer)
   {
     incorrectAnswerCounter++
     var div2 = document.getElementById("wrongMessage");
-    div.innerHTML +=  "No. That's not right."
+    div2.innerHTML +=  "No. That's not right."
   }
 })
 //     if (userChoice=rightAnswer){
@@ -159,3 +166,26 @@ $("#answers").on("click", "div", function(e){
 
 
 });
+
+// var counter = 0;
+// function showQ() {
+//   const question = pageArray[0];
+
+//   appendToDom(question)
+
+
+
+//   //the user can click on something after appemdToDOm happens
+//   // do work to display question on screen (reset function up there)
+// }
+
+// onClick () {
+//   // if right, run increment right answers counter
+//   // else increment wrong answers
+//   // in both cases increment counter, and run showQ
+// }
+
+/* 
+
+
+*/
