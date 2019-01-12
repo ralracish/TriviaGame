@@ -1,67 +1,81 @@
-
+var page = {
+  question1: {
+    text: "What type of money would you spend in Germany?",
+    answerArray: ["Yen", "Deutsche Marks", "Pounds", "Euros"],
+    rightAnswer: 3,
+    image: "../assets/images/Euro.jpg"
+    },
+  question2: {
+    text: "What river runs through Paris?",
+    answerArray: ["The Seine", "River Thames", "The Danube", "The Amstel"],
+    rightAnswer: 0,
+    image: "..assets/images/SeineRiver.jpg"
+    },   
+  question3: { 
+    text: "In what country is The Great Wall?",
+    answerArray: ["Spain", "China", "Argentina", "Canada"],
+    rightAnswer: 1,
+    image: "../assets/images/GreatWall.jpg"
+    },
+  question4:{ 
+    text: "In what US state is the Grand Canyon?",
+    answerArray: ["New Mexico", "Arizona", "California", "Nevada"],
+    rightAnswer: 1,
+    image: "../assets/images/GrandCanyon.jpg"
+    },
+   question5: {
+    text: "In 1976, Saigon changed its name to …?",
+    answerArray: ["Ho Chi Minh City", "Pattaya", "Saigon City", "Hanoi"],
+    rightAnswer: 0,
+    image: "../assets/images/GrandCanyon.jpg"
+  }
+}
 $(document).ready(function() {
     
-var pageArray = [
-   {
-    "question": "What type of money would you spend in Germany?",
-    "answerArray": ["Yen", "Deutsche Marks", "Pounds", "Euros"],
-    "rightAnswer": 3,
-    "image": "../assets/images/Euro.jpg"
-    },
-    
-    {
-    "question": "What river runs through Paris?",
-    "answerArray": ["The Seine", "River Thames", "The Danube", "The Amstel"],
-    "rightAnswer": 0,
-    "image":"..assets/images/SeineRiver.jpg"
-    },   
-
-    {
-    "question": "In what country is The Great Wall?",
-    "answerArray": ["Spain", "China", "Argentina", "Canada"],
-    "rightAnswer": 1,
-    "image": "../assets/images/GreatWall.jpg"
-    },
-
-    {
-    "question": "In what US state is the Grand Canyon?",
-    "answerArray": ["New Mexico", "Arizona", "California", "Nevada"],
-    "rightAnswer": 1,
-    "image": "../assets/images/GrandCanyon.jpg"
-    },
-
-    {
-    "question": "In 1976, Saigon changed its name to …?",
-    "answerArray": ["Ho Chi Minh City", "Pattaya", "Saigon City", "Hanoi"],
-    "rightAnswer": 0,
-    "image": "../assets/images/GrandCanyon.jpg"
-    }
-]
-
 
 
 var correctAnswer = 0;
 var incorrectAnswer = 0;
 var unanswered = 0;
 var userAnswer = [];
-var currentQuestion = 0;
 var userChoice=false;
+var counter = 1;
+var currentQuestion = "question" + counter;
+
+// game[key].someotherproperty;
 
 
 //Do I need to collect userAnswers into an array because I need to hold them somewhere?
 
 //Start button should only be on first page, and when hit, timer starts and new page comes up
-// $("#startBtn").click(function){ 
-//   timer();
-//   $(this).hide();
-// }
-//Create function for displaying questions with associated answers on the screen
+$("#startBtn").click(function(){
+  $(this).hide();
+  reset()
+});
 
-// function displayquestions(){
-//   loop through "question"
-//   loop through "answerArray"
-//   append BOTH to html, appending "answerArray" to a list tag in html
-// }
+function reset(){
+  run();
+  counter++
+  $("#question").text(page[currentQuestion].text)
+  var pageDiv1 = $("<div>")
+  pageDiv1.html(page[currentQuestion].answerArray[0])
+  $("#answers").append(pageDiv1)
+  var pageDiv2 = $("<div>")
+  pageDiv2.html(page[currentQuestion].answerArray[1])
+  $("#answers").append(pageDiv2)
+  var pageDiv3 = $("<div>")
+  pageDiv3.html(page[currentQuestion].answerArray[2])
+  $("#answers").append(pageDiv3)
+  var pageDiv4 = $("<div>")
+  pageDiv4.html(page[currentQuestion].answerArray[3])
+  $("#answers").append(pageDiv4)    
+}
+
+
+// $("#answers").on("click", "div" function(){
+// console.log(this);
+// })
+
 
 // function selectAnswers(){
 //Set userChoice = false?
@@ -111,7 +125,7 @@ var userChoice=false;
     clearInterval(intervalId);
     intervalId = null
   }
-  run();
+  
 // }
 
 
