@@ -38,17 +38,8 @@ $(document).ready(function () {
   var unanswered = 0;
   var userChoice = [];
   var counter = 0;
-  // var rightAnswer = pageArray[counter].rightAnswer
   var timer;
-  // sets the initial button settings, using the counter and arr above  
-  // function setButton() {
-  //   const buttonSettings = contentArr[counter];
-  //   const button = $('<button id=\'clicker\'>');
-  //   button.text(buttonSettings.text);
-  //   button.css('background-color', buttonSettings.colors[buttonSettings.rightColor])
-  //   button.appendTo('#button-area');
-  //   timer = setTimer();
-  // }
+  
   $("#startBtn").click(function () {
     $(this).hide();
     run();
@@ -70,7 +61,7 @@ $(document).ready(function () {
   }
   function setTimer() {
     console.log('setTimeout being set');
-    return setTimeout(changePage, 5000)
+    return setTimeout(changePage, 2000)
   }
 
   function clearTimer() {
@@ -88,7 +79,7 @@ $(document).ready(function () {
     console.log(counter);
     // if we reach limit
     if (counter == pageArray.length) {
-      end();
+      setTimeout(end, 2000);
     } else {
       var newPage = pageArray[counter];
       var question = newPage.question;
@@ -102,10 +93,11 @@ $(document).ready(function () {
   }
 
   function end() {
+    var answerDiv =$("#message")
+    answerDiv.empty();
     const doneText = $('<p>');
-    doneText.text('We reached the end:' +
-      'Correct Answers: ' + '=' + correctAnswerCounter +
-      'Incorrect Answers: ' + '=' + incorrectAnswerCounter);
+    doneText.text('We reached the end: ' +  'Correct Answers: ' + '= ' + correctAnswerCounter +
+      'Incorrect Answers: ' + '= ' + incorrectAnswerCounter);
       $("#message").append(doneText);
     clearInterval(intervalId);
   }
@@ -130,7 +122,7 @@ $(document).ready(function () {
       // img.src = question.image
       // src.appendChild(img);
       stop()
-      changePage();
+      setTimer();
     }
     else if (userChoice !== rightAnswer) {
       incorrectAnswerCounter++
@@ -140,7 +132,7 @@ $(document).ready(function () {
       // img.src = question.image
       // src.appendChild(img);
       stop();
-      changePage();
+      setTimer();
     }
   }
   var number = 5;
