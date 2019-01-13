@@ -33,8 +33,7 @@ var pageArray = [
 $(document).ready(function () {
 
 
-
-  var rightAnswer = pageArray.rightAnswer
+  var rightAnswer = pageArray[counter].rightAnswer
   var correctAnswerCounter = rightAnswer + 1
   var incorrectAnswerCounter = 0;
   var unanswered = 0;
@@ -129,11 +128,11 @@ $(document).ready(function () {
       stop()
       changePage();
     }
-    else if (userAnswer !== pageArray.rightAnswer) {
+    else if (userAnswer !== rightAnswer) {
       incorrectAnswerCounter++
       var div2 = document.getElementById("wrongMessage");
       div2.innerHTML += "No. That's not right." +
-        "The correct answer is " + pageArray.rightAnswer + ".";
+        "The correct answer is " + rightAnswer + ".";
       // var img = document.createElement("img");
       // img.src = question.image
       // src.appendChild(img);
