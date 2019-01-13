@@ -95,10 +95,13 @@ $(document).ready(function () {
   function end() {
     var answerDiv =$("#message")
     answerDiv.empty();
+    var timerDiv = $("#timer");
+    timerDiv.empty();
     const doneText = $('<p>');
-    doneText.text('We reached the end: ' +  'Correct Answers: ' + '= ' + correctAnswerCounter +
-      'Incorrect Answers: ' + '= ' + incorrectAnswerCounter);
+    doneText.html('Here is your score: ' +'<br>' +  'Correct Answers: = ' + correctAnswerCounter + '<br>' +
+      'Incorrect Answers: = ' + incorrectAnswerCounter);
       $("#message").append(doneText);
+      $("message").css( "color", "red");
     clearInterval(intervalId);
   }
 
@@ -111,13 +114,14 @@ $(document).ready(function () {
   function answerPage() {
     var questionDiv = $("#question");
     var answer = $("#answers");
-    questionDiv.empty()
+    questionDiv.empty();
     answer.empty();
     if (userChoice == rightAnswer) {
       console.log(rightAnswer)
       correctAnswerCounter++;
       console.log(correctAnswerCounter);
       $("#message").text("You picked the right answer! " + rightAnswer);
+      $("message").css( "color", "red");
       // var img = document.createElement("img");
       // img.src = question.image
       // src.appendChild(img);
