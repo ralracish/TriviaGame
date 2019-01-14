@@ -42,19 +42,19 @@ var pageArray = [
   },
   {
     question: "What canal connects the Mediterranean with the Red Sea?",
-    answerArray: ["Karakum Canal","Kiel Canal", "Suez Canal", "Panama Canal"],
-    rightAnswer:"Suez Canal",
+    answerArray: ["Karakum Canal", "Kiel Canal", "Suez Canal", "Panama Canal"],
+    rightAnswer: "Suez Canal",
     image: "https://gph.is/1WmOuf8",
   },
   {
-    question: "What is the world's busiest airport?", 
-    answerArray: ["Hartsfield-Jackson Atlanta", "JFK New York", "Beijing Capital International", "Dubai International"],  
-    rightAnswer:"Hartsfield-Jackson Atlanta", 
+    question: "What is the world's busiest airport?",
+    answerArray: ["Hartsfield-Jackson Atlanta", "JFK New York", "Beijing Capital International", "Dubai International"],
+    rightAnswer: "Hartsfield-Jackson Atlanta",
     image: "https://gph.is/1eLpJRZ",
   },
   {
     question: "Where was the tv show Game of Thrones filmed?",
-    answerArray: ["Nassau, Bahamas", "Grand Cayman, Cayman Islands","Dubrovnik, Croatia", "Philipsburg, St. Maarten / St. Martin"],
+    answerArray: ["Nassau, Bahamas", "Grand Cayman, Cayman Islands", "Dubrovnik, Croatia", "Philipsburg, St. Maarten / St. Martin"],
     rightAnswer: "Dubrovnik, Croatia",
     image: "http://gph.is/2qSjUlz",
   }
@@ -67,8 +67,8 @@ $(document).ready(function () {
   var userChoice = [];
   var counter = 0;
   var timer;
-  
-  $("#startBtn").click(function() {
+
+  $("#startBtn").click(function () {
     $(this).hide();
     run();
     playPage();
@@ -121,20 +121,20 @@ $(document).ready(function () {
   }
 
   function end() {
-    var answerDiv =$("#message")
+    var answerDiv = $("#message")
     answerDiv.empty();
     var timerDiv = $("#timer");
     timerDiv.empty();
     const doneText = $('<p>');
-    doneText.html('Here is your score: ' +'<br>' +  'Correct Answers: = ' + correctAnswerCounter + '<br>' +
+    doneText.html('Here is your score: ' + '<br>' + 'Correct Answers: = ' + correctAnswerCounter + '<br>' +
       'Incorrect Answers: = ' + incorrectAnswerCounter);
-      $("#message").append(doneText);
-      $("message").css( "color", "red");
+    $("#message").append(doneText);
+    $("message").css("color", "red");
     clearInterval(intervalId);
   }
 
   $("#answers").on("click", "li", function () {
-    $(this).css({backgroundColor: 'red', color:'white'});
+    $(this).css({ backgroundColor: 'red', color: 'white' });
     userChoice = ($(this).text());
     console.log(userChoice);
     answerPage()
@@ -150,11 +150,11 @@ $(document).ready(function () {
       correctAnswerCounter++;
       console.log(correctAnswerCounter);
       $("#message").text("You picked the right answer! " + rightAnswer);
-      $(this).css({"color":"red"});
+      $(this).css({ "color": "red" });
       var newPage = pageArray[counter];
       var img = newPage.image
       var div = document.getElementById('img');
-      img.onload = function() {
+      img.onload = function () {
         div.appendChild(img);
       };
       stop()
