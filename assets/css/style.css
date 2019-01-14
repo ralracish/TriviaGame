@@ -44,6 +44,9 @@
 #answers {
     font-size:30px
 }
+#message{
+    color:red;
+}
 #timer {
     margin-top:20px;
 }

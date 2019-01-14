@@ -1,33 +1,62 @@
 var pageArray = [
-
   {
     question: "What type of money would you spend in Germany?",
     answerArray: ["Yen", "Deutsche Marks", "Pounds", "Euros"],
     rightAnswer: "Euros",
-    image: "../assets/images/Euro.jpg"
+    image: "https://gph.is/2d7mb4z..TriviaGame/assets/images/Euro.jpg",
   },
   {
     question: "What river runs through Paris?",
     answerArray: ["The Seine", "River Thames", "The Danube", "The Amstel"],
     rightAnswer: "The Seine",
-    image: "..assets/images/SeineRiver.jpg"
+    image: "https://gph.is/1Cry890",
   },
   {
     question: "In what country is The Great Wall?",
     answerArray: ["Spain", "China", "Argentina", "Canada"],
     rightAnswer: "China",
-    image: "../assets/images/GreatWall.jpg"
+    image: "https://gph.is/1bOYreF",
   },
   {
     question: "In what US state is the Grand Canyon?",
     answerArray: ["New Mexico", "Arizona", "California", "Nevada"],
     rightAnswer: "Arizona",
-    image: "../assets/images/GrandCanyon.jpg"
+    image: "https://gph.is/2aNdFUo",
   }, {
     question: "In 1976, Saigon changed its name to …?",
     answerArray: ["Ho Chi Minh City", "Pattaya", "Saigon City", "Hanoi"],
     rightAnswer: "Ho Chi Minh City",
-    image: "../assets/images/GrandCanyon.jpg"
+    image: "https://gph.is/2KtoP3X",
+  },
+  {
+    question: "What is the largest waterfall in the world?",
+    answerArray: ["Niagara Falls", "Victoria Falls", "Linville Falls", "Yosemite Falls"],
+    rightAnswer: "Victoria Falls",
+    image: "http://gph.is/2oXgQBT",
+  },
+  {
+    question: "Where are the pyramids of the sun and the moon?",
+    answerArray: ["Mexico", "Japan", "Zimbabwe", "Peru"],
+    rightAnswer: "Mexico",
+    image: "https://gph.is/2bQ7LmI",
+  },
+  {
+    question: "What canal connects the Mediterranean with the Red Sea?",
+    answerArray: ["Karakum Canal","Kiel Canal", "Suez Canal", "Panama Canal"],
+    rightAnswer:"Suez Canal",
+    image: "https://gph.is/1WmOuf8",
+  },
+  {
+    question: "What is the world's busiest airport?", 
+    answerArray: ["Hartsfield-Jackson Atlanta", "JFK New York", "Beijing Capital International", "Dubai International"],  
+    rightAnswer:"Hartsfield-Jackson Atlanta", 
+    image: "https://gph.is/1eLpJRZ",
+  },
+  {
+    question: "Where was the tv show Game of Thrones filmed?",
+    answerArray: ["Nassau, Bahamas", "Grand Cayman, Cayman Islands","Dubrovnik, Croatia", "Philipsburg, St. Maarten / St. Martin"],
+    rightAnswer: "Dubrovnik, Croatia",
+    image: "http://gph.is/2qSjUlz",
   }
 ]
 $(document).ready(function () {
@@ -35,12 +64,11 @@ $(document).ready(function () {
 
   var correctAnswerCounter = 0
   var incorrectAnswerCounter = 0;
-  var unanswered = 0;
   var userChoice = [];
   var counter = 0;
   var timer;
   
-  $("#startBtn").click(function () {
+  $("#startBtn").click(function() {
     $(this).hide();
     run();
     playPage();
@@ -106,6 +134,7 @@ $(document).ready(function () {
   }
 
   $("#answers").on("click", "li", function () {
+    $(this).css({backgroundColor: 'red', color:'white'});
     userChoice = ($(this).text());
     console.log(userChoice);
     answerPage()
@@ -121,10 +150,13 @@ $(document).ready(function () {
       correctAnswerCounter++;
       console.log(correctAnswerCounter);
       $("#message").text("You picked the right answer! " + rightAnswer);
-      $("message").css( "color", "red");
-      // var img = document.createElement("img");
-      // img.src = question.image
-      // src.appendChild(img);
+      $(this).css({"color":"red"});
+      var newPage = pageArray[counter];
+      var img = newPage.image
+      var div = document.getElementById('img');
+      img.onload = function() {
+        div.appendChild(img);
+      };
       stop()
       setTimer();
     }
@@ -132,14 +164,11 @@ $(document).ready(function () {
       incorrectAnswerCounter++
       $("#message").text("No. That's not right." +
         "The correct answer is " + rightAnswer + ".");
-      // var img = document.createElement("img");
-      // img.src = question.image
-      // src.appendChild(img);
       stop();
       setTimer();
     }
   }
-  var number = 5;
+  var number = 10;
   var intervalId;
   function run() {
     if (!intervalId) {
@@ -158,7 +187,7 @@ $(document).ready(function () {
   function stop() {
     clearInterval(intervalId);
     intervalId = null
-    number = 5;
+    number = 10;
   }
 });
 
